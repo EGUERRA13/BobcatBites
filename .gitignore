@@ -1,0 +1,5 @@
+.env
+secrets
+basic.conf
+general.conf
+fly.toml

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .navbar {
+      overflow: hidden;
+      background-color: #333;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .navbar a {
+      float: left;
+      font-size: 16px;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+    .dropdown {
+      float: left;
+      overflow: hidden;
+    }
+
+    .dropdown .dropbtn {
+      cursor: pointer;
+      font-size: 16px;
+      border: none;
+      outline: none;
+      color: white;
+      padding: 14px 16px;
+      background-color: inherit;
+      font-family: inherit;
+      margin: 0;
+    }
+
+    .navbar a:hover,
+    .dropdown:hover .dropbtn,
+    .dropbtn:focus {
+      background-color: #8D734A;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      float: none;
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      text-align: left;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #ddd;
+    }
+
+    .show {
+      display: block;
+    }
+  </style>
+  <script>
+    /* When the user clicks on the button, 
+    toggle between hiding and showing the dropdown content */
+    function myFunction() {
+      document.getElementById("myDropdown").classList.toggle("show");
+    }
+
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function (e) {
+      if (!e.target.matches('.dropbtn')) {
+        var myDropdown = document.getElementById("myDropdown");
+        if (myDropdown.classList.contains('show')) {
+          myDropdown.classList.remove('show');
+        }
+      }
+    }
+  </script>
+  <title>Bobcat Bites: About Us</title>
+  <link rel="stylesheet" href="/static/styles/newhome.css" type="text/css" />
+</head>
+
+<body>
+
+  <div class="header">
+    <img style="margin-top: 0px;width: 70%;float:right; height:150px;" src="/static/images/bobcatbitesbanner2.jpg" alt="txstbanner">
+    <h1 style="font-size: 35px;padding: 20px;padding-top: 45px; margin-bottom: -55px;padding-left: 40px;" ><strong>Bobcat Bites</strong></h1>
+    <h2 style="font-size: 20px; padding: 20px; padding-left: 40px">Food Recommendation </h2>
+  </div>
+
+  <div style="margin-top:-5px;" class="navbar">
+    <a style="font-size: 14px; box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);" href="{{url_for('display_main')}}"> Main Page</a>
+    <a style="font-size: 14px; box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);" href="{{url_for('create_profile')}}">My Profile</a>
+    <a style="font-size: 14px; box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);" href="{{url_for('displaySavedResults')}}">My Favorites</a>
+    <a style="font-size: 14px; box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)" href="{{url_for('getRecommendationBySearch')}}">Search for Recommendation</a>
+    <a style="font-size: 14px; box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)" href="{{url_for('getRecommendationByRand',restaurantIndex=25, foodIndex=0)}}">Random Recommendation</a>
+    <div class="dropdown">
+      <button style="font-size: 14px; box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);" class="dropbtn" onclick="myFunction()">Recommendation by Place
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content" id="myDropdown">
+        <a href="{{url_for('getRecommendationByRestaurant',restaurant='Absurd Bird',restaurant_index=0,list_index=0)}}">Absurd Bird</a>
+        <a href="{{url_for('getRecommendationByRestaurant',restaurant='AJs BBQ',restaurant_index=1,list_index=0)}}">AJs BBQ</a>
+        <a href="{{url_for('getRecommendationByRestaurant',restaurant='Asado Latin Grill',restaurant_index=2,list_index=0)}}">Asado Latin
+          Grill</a>
+        <a href="{{url_for('getRecommendationByRestaurant',restaurant='Blimpie American Subs',restaurant_index=3,list_index=0)}}">Blimpie
+          American
+          Subs</a>
+        <a href="{{url_for('getRecommendationByRestaurant',restaurant='Burger 512',restaurant_index=4,list_index=0)}}">Burger 512</a>
+        <a href="{{url_for('getRecommendationByRestaurant',restaurant='Chick Fil A',restaurant_index=5,list_index=0)}}">Chick Fil A</a>
+        <a href="{{url_for('getRecommendationByRestaurant',restaurant='Coffee and Pi Market',restaurant_index=6,list_index=0)}}">Coffee and
+          Pi
+          Market</a>
+        <a href="{{url_for('getRecommendationByRestaurant',restaurant='Create Premium Deli',restaurant_index=7,list_index=0)}}">Create
+          Premium Deli</a>
+        <a href="{{url_for('getRecommendationByRestaurant',restaurant='Dunkin Doughnuts',restaurant_index=8,list_index=0)}}">Dunkin
+          Doughnuts</a>
+        <a href="{{url_for('getRecommendationByRestaurant',restaurant='Einstein Bros Bagels',restaurant_index=9,list_index=0)}}">Einstein's
+          Bagels</a>
+        <a href="{{url_for('getRecommendationByRestaurant',restaurant='Kawa Sushi',restaurant_index=10,list_index=0)}}">Kawa Sushi</a>
+        <a href="{{url_for('getRecommendationByRestaurant',restaurant='McCoy Cafe',restaurant_index=11,list_index=0)}}">McCoy Cafe</a>
+        <a href="{{url_for('getRecommendationByRestaurant',restaurant='Melt Lab',restaurant_index=12,list_index=0)}}">Melt Lab</a>
+        <a href="{{url_for('getRecommendationByRestaurant',restaurant='Mondo Subs',restaurant_index=13,list_index=0)}}">Mondo Subs</a>
+        <a href="{{url_for('getRecommendationByRestaurant',restaurant='Panda Express',restaurant_index=14,list_index=0)}}">Panda Express</a>
+        <a href="{{url_for('getRecommendationByRestaurant',restaurant='Pizza Hut',restaurant_index=15,list_index=0)}}">Pizza Hut Express</a>
+        <a href="{{url_for('getRecommendationByRestaurant',restaurant='Pom and Honey',restaurant_index=16,list_index=0)}}">Pom and Honey</a>
+        <a href="{{url_for('getRecommendationByRestaurant',restaurant='Revolution Noodle',restaurant_index=17,list_index=0)}}">Revolution
+          Noodle</a>
+        <a href="{{url_for('getRecommendationByRestaurant',restaurant='The Salty',restaurant_index=18,list_index=0)}}">The Salty</a>
+        <a href="{{url_for('getRecommendationByRestaurant',restaurant='Shake Smart',restaurant_index=19,list_index=0)}}">Shake Smart</a>
+        <a href="{{url_for('getRecommendationByRestaurant',restaurant='Starbucks',restaurant_index=20,list_index=0)}}">Starbucks</a>
+        <a href="{{url_for('getRecommendationByRestaurant',restaurant='Tea Co',restaurant_index=21,list_index=0)}}">The Tea Co</a>
+        <a href="{{url_for('getRecommendationByRestaurant',restaurant='Tu Taco',restaurant_index=22,list_index=0)}}">Tu Taco</a>
+        <a href="{{url_for('getRecommendationByRestaurant',restaurant='Wing It',restaurant_index=23,list_index=0)}}">Wing it</a>
+        <a href="{{url_for('getRecommendationByRestaurant',restaurant='Woods St Pizza & Pasta',restaurant_index=24,list_index=0)}}">Woods St
+          Pizza &
+          Pasta</a>
+      </div>
+    </div>
+    <a  style="font-size: 14px; box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)" href="{{url_for('about')}}"> About Us</a>
+    <a href="{{url_for('logout')}}" style="float:right;font-size: 14px;">Log Out</a>
+  </div>
+
+  <div class="row">
+    <div class="leftcolumn">
+      <div class="card">
+        <h2 style="padding-bottom: 20px; font-size: 26px;">About Our Website</h2>
+        <h3 style="font-size: 22px;"><strong>How This Website Works</strong></h3>
+        <p>
+          <h3> Getting Started</h3>
+          <p>It is <b>HIGHLY RECOMMENDED</b> to customize your profile to your likeness before
+            selecting any of the recommendation options. However if you do choose to test
+            these features please know that the website will produce results based on the following profile:
+          <p>Budget: $3.00-$20.00, no allergens, no preferred food items, and no preferred tastes </p>
+
+        <h3>How Is My Rating Quantified?</h3> This system adds points in accordance to your profile's matches
+        to each food's flavor/ingredients/cost relative to your profile's information and budget. A numerical value 
+        is calculated based on the number of matches with the food item's information and is recalcuated with each 
+        profile update. <br>
+        Is Based on a 0-5 scale:<br><br>
+        <b>3 or more</b> (Relatively high match)<br>
+        <b>1.5-2.5</b> (Decent match)<br>
+        <b>1 or less</b> (Unlikely match)
+        <br><br>
+        (NOTE) If you are getting low scores, this could be because the profile needs to be more detailed,
+        ie you add more information, which results in more matches. The best course of action for ingredients
+        is to keep it generic (ie bread not sourdough bread or cheese not pepperjack)
+        </p>
+
+        <h3> Using Our Search Services</h3>
+        <p><b>For Search:</b> the results will be based entirely on your search query, it will be provide results
+          filtering out results from your allergens and your saved list.<br>
+          <b>For Random Recommendation:</b> Will recommend food items randomly, filtering out results based
+          on allergens and your saved list. If you choose to leave to another part of the website your
+          progress is reset. <br>
+          <b>For Recommendation by Restaurant:</b> This will populate with results for a particular restaurant,
+          filtering out results based on allergens and your saved list. If you choose to leave to another
+          part of the website, progress is reset (also is reset if you reach the end of the list)<br>
+          <br>
+
+          <h2>Bobcat Bites Version 1.2.32 Launch Version</h2>
+          <h5>Current as of April 20th, 2023</h5>
+          <h3>New Updates and Bug Fixes</h3>
+          <p>
+            <ul>
+              <li>Added a new title page</li>
+              <li>Added an about page for website inquiries</li>
+              <li>Updated restaurant list with more restaurants</li>
+              <li>Adjusted search algorithm and display to display results</li>
+              <li>Added full list of pictures of food items</li>
+              <li>Adjusted Random Recommendation threshold to be 1.5 or greater </li>
+              <li>Fixed several bugs regarding search results</li>
+            </ul>
+          </p>
+          <br>
+          <h3>For Any Other Inquiries Please Email Us At:</h3>
+        <h3>bobcatbitestxstate@gmail.com</h3>
+      </div>
+
+    </div>
+    <div class="rightcolumn">
+      <div class="card">
+        <h3>Help Us Out!</h3>
+        <p> Bobcat Bites usability improves with the feedback of its users. Fill out 
+            <a href="https://forms.gle/sTzdMcBxncWQruvh8"><strong>this survey</strong></a>  
+            so we can provide a better future experience.
+        </p><br>
+      </div>
+      <div class="card">
+        <h3 style="font-size: 20px;margin-top: 10px;">Follow Us</h3>
+        <div style="margin-left: 20px;"class="fbimg"></div>
+        <span style="font-size: 12px; margin-left: 20px;">Facebook</span>
+        <div style="margin-top: 10px; margin-left: 20px;" class="twimg"></div>
+        <span style="font-size: 12px;margin-left: 20px;">Twitter</span>
+        <div style="margin-top: 10px; margin-left: 20px;" class="ghimg"></div>
+        <a style="font-size: 12px; margin-left: 20px;" href="https://github.com/NickMontelongo/Human-Factors-Bobcat-Bites">Project Github</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>This page was created on March 7 2023, at 11:05 (CST) for use in the Group Project Spring 2023. This service and
+      its intellectual property is a registered trademark of Group 3 of Human Factors 4326.251 </p>
+  </div>
+
+</body>
+
+</html>
