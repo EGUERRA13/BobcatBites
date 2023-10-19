@@ -162,3 +162,64 @@ input {
 	height: 40px;
 	width: 40px;
 }
+
+
+@media only screen and (max-width: 620px) {
+	/* For mobile phones: */
+	.container {
+	  width: 85%;
+	}
+	form {
+		padding-left: 1px;
+		padding-right: 1px;
+		padding-top: 0px;
+
+	}
+	h1{
+		font-size: 25px;
+		margin: -10px;
+		margin-top: 0px;
+	}
+	h4{
+		font-size: 8px!important;
+		margin: -5px;
+	}
+	h3{
+		font-size: 9px!important;
+		margin: 0px;
+	}
+	a{
+		font-size: 8px!important;
+		padding-top: 10px;
+
+	}
+	input{
+		width:80%;
+		height: 40%;
+		font-size: 7px;
+	}
+	input[type="submit"]{
+		border-radius: 20px;
+		border: 1px solid #501214;
+		background-color: #501214;
+		color: #FFFFFF;
+		font-size: 8px;
+		font-weight: bold;
+		height: 5%;
+		padding-left: 0px;
+		padding-right: 0px;
+		padding-top: 0px;
+		padding-bottom: 0px;
+		letter-spacing: 1px;
+		text-transform: uppercase;
+		transition: transform 80ms ease-in;
+	}
+	p{
+		font-size: 8px!important;
+	}
+	b{
+		font-size: 8px!important;
+	}
+
+	
+  }
