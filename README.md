@@ -6,4 +6,4 @@ For the Search Recommendation, the results will be based entirely on your search
 https://github.com/EGUERRA13/BobcatBites/assets/78048865/31859281-92fc-4e4a-b385-78c58b75cc32
 
 
-Website link - https://bobcat001.fly.dev/   (desktop view only currently)
+Website link - https://bobcat001.fly.dev/
